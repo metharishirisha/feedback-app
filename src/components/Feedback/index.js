@@ -1,19 +1,26 @@
+// Write your React code here.
+// Write your React code here.
 import {Component} from 'react'
 
 import './index.css'
 
 class Feedback extends Component {
-  state = {isFeedbackSelected: false}
+  state = {
+    isFeedbackSelected: false,
+  }
 
   onClickEmoji = () => this.setState({isFeedbackSelected: true})
 
   renderFeedbackQuestion = () => {
     const {resources} = this.props
     const {emojis} = resources
+
     return (
-      <div className="feedback-question-container">
-        <h1>How satisfied are you with our customer support performance?</h1>
-        <ul className = 'emojis-list'>
+      <div className="question-container">
+        <h1 className="feedback-question">
+          How satisfied are you with our customer support performance?
+        </h1>
+        <ul className="emojis-list">
           {emojis.map(emoji => (
             <li key={emoji.id}>
               <button
@@ -49,6 +56,7 @@ class Feedback extends Component {
 
   render() {
     const {isFeedbackSelected} = this.state
+
     return (
       <div className="app-container">
         <div className="feedback-card">
